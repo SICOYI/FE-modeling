@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 # Description:
 # This script is based on the Euler-Bernoulli beam theory (Second-order shape function) with
-# constant curvature (parabola curve). And all the deformation is linear
+# constant curvature (3rd-order curve). And all the deformation is linear
 # with no directional coupling is considered
 
 
