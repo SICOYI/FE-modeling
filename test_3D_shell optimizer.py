@@ -124,7 +124,7 @@ def FDM (Q,CN=CN, CF=CF, px=px, py=py, pz=pz,Fixed_nodes=Fixed_nodes, Free_nodes
 # cross_section_angle_b = 0  # Cross-section angle at node 2 (anti-clockwise)
 # a_small_number = 1e-10
 
-D_radius = 0.01
+D_radius = 0.05
 D_young_modulus = 210e9  # Young's modulus in Pascals
 D_shear_modulus = 81e9  # Shear modulus in Pascals
 D_poisson_ratio = 0.3
@@ -411,7 +411,7 @@ for node in Fixed_nodes:
     fixed_dof.extend([(node - 1) * 6 + i for i in range(6)])
 # print(fixed_dof)
 ####### Gradient descent
-step = 0.5
+step = 0.01
 epochs = 50
 
 ####### Plotting
@@ -467,7 +467,7 @@ Coordinates = new_node_coords.reshape(-1)
 ## Coordinates renewal:
 New_Coordinates = torch.zeros(n_nodes * 3, dtype=torch.float32)
 displacements = Strain_E(node_coords, connectivity, fixed_dof, F)[2]
-# print("displacements:",displacements)
+print("displacements:",displacements)
 for n in range(n_nodes):
     New_Coordinates[3*n : 3*n+3] = Coordinates[3*n : 3*n+3] + displacements[6*n : 6*n+3]
 
